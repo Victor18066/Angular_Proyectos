@@ -1,0 +1,25 @@
+<div>
+  
+  <!-- Crear componente que sea un formulario para crear una tarea
+  este componente va a tener dos form fields: title y descripción
+  El componenete tiene que ser capaz de emitir (output) el valor del 
+  formulario cuando le des al botón de crear que estará también dentro de este componente 
+  -->
+
+    
+  </div>
+  
+  <div class="task" *ngFor="let task of taskList; let i = index">
+
+    <!-- Crear el componente tarea
+    Debe tener el botón de borrar. Cuando se pulse notificará a list.component para que actualice el estado
+    -->
+
+     <app-task> [task]="task" (delete)="deleteHandler($event)" [indice]=""></app-task>
+  
+    
+  
+    <!-- Moverlo al componente. Emitir el valor al darle a enviar -->
+  
+  
+  </div>
