@@ -1,0 +1,36 @@
+<form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate>
+    {{detail | json}} <!-- formato Json -->
+    <div>
+        Passenger Name:
+        <input type="text" style="margin-right: 20px" name="fullname" #fullname="ngModel" required [ngModel]="detail?.fullname"/>
+        <small *ngIf="fullname.errors?.['required'] && fullname.touched">Passenger name is required</small> <!-- .['required'] -->
+    </div>
+    <div>
+        Passenger ID:
+        <input type="text" style="margin-right: 20px" name="id" #id="ngModel" required [ngModel]="detail?.id"/>
+        <small *ngIf="id.errors?.['required'] && fullname.dirty">ID is required</small>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" name="checkedIn" [ngModel]="detail?.checkedIn" (ngModelChange)="toggleCheckIn($event)"/>
+        </label>
+        <div *ngIf="form.value.checkedIn">
+            Check in date:
+            <input type="number" name="checkInDate" [ngModel]="detail?.checkInDate"/>
+        </div>
+    </div>
+    <div>
+        Luggage:
+        <select name="baggage" [ngModel]="detail?.baggage">
+            <option *ngFor="let item of baggage" [value]="item.key" [selected]="item.key === detail?.baggage"> <!-- selected ?? -->
+                {{item.value}}
+            </option>
+        </select>
+    </div>
+    <div>{{form.value | json}}</div>
+    <div>Valid: {{form.valid | json}}</div>
+    <div>Invalid: {{form.invalid | json}}</div>
+    <button type="submit" [disabled]="form.invalid">Update Passenger</button>
+</form>
+    
+

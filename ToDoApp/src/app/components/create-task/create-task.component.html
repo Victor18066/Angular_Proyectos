@@ -1,10 +1,12 @@
-<div>
-    <span class="title"> Title:</span>
-     <!-- <input [(ngModel)]="task.title" type="text"> -->
-</div>
+<form [formGroup]="toDoForm">
+    <div>
+        <span class="title"> Title:</span> <br>
+        <input id="title" type="text" formControlName="title">
+    </div>
 
-<div> 
-    <span class="title"> Description:</span>
-    <!-- <input [(ngModel)]="task.description" type="text"> -->
-</div>
-<button (click)="addTask()">Add Task</button>
+    <div> 
+        <span class="title"> Description:</span> <br>
+        <input id="description" type="text" formControlName="description"> 
+    </div> <br>
+    <button (click)="addTask()">Add Task</button>
+</form>

@@ -1,25 +1,22 @@
+<!-- export
+<app-passenger-actions></app-passenger-actions>
+<app-passenger-count></app-passenger-count>
+<app-passenger-detail></app-passenger-detail>
+-->
+
+<!-- <passenger-dashboard></passenger-dashboard> -->
+
 <div class="app">
-  <h3>Airline Passengers</h3>
-  <div class="actions">
-    <button class="all-passengers" [ngClass]="boton1 ? 'clickedGreen' : '' " (click)="filterPassengers(null, 1)" style="margin-right: 10px;">All</button> <!-- botón verde -->
-    <button class="checked-in-passengers" [ngClass]="boton2 ? 'clickedGreen' : '' " (click)="filterPassengers(true, 2)" style="margin-right: 10px;">Checked in</button> <!--  botón verde -->
-    <button class="not-checked-in-passengers" [ngClass]="boton3 ? 'clickedGreen' : '' " (click)="filterPassengers(false, 3)">Not Checked in</button> <!--  botón verde -->
-  </div>
-  <ul>
-    <li *ngFor="let passenger of passengers; let i=index;">
-       <div *ngIf="(passenger.checkedIn==display) || display==null" class="card"> 
-        <img src="assets/img/flags/{{ (passenger.nationality ? passenger.nationality : defaultFlag)}}" width="17"/>
-         <span class="status" [class.checked-in]="passenger.checkedIn"></span>
-        {{i}}: {{passenger.fullname}}
-        <div class="date">
-          Check in date:
-          {{(passenger.checkedIn ? (passenger.checkInDate | date: 'MMMM d, y') : 'Not checked in') | uppercase}} <!-- passenger.checkedIn -->
-        </div>
-        <div class="children">
-         Children: {{passenger.children?.length || 0}}
-        </div>
-      </div>
-    </li>
-  </ul>
+    <nav class = "nav">
+        <a 
+            *ngFor="let item of nav"
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: item.exact}"> <!-- Para que si está en otra pestaña que no sea Home, no marque tambíen Home xq técnicamente sigue haciendo match con "/" -->
+            {{item.name}}
+        </a>
+    </nav>
+    <router-outlet></router-outlet>
+    <app-passenger-viewer></app-passenger-viewer>
 </div>
 

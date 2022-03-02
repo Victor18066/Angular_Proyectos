@@ -1,0 +1,18 @@
+<div class ="left">
+    <app-passenger-count [items]= "passengers"></app-passenger-count> <!-- [display]="display" -->
+    <app-passenger-actions (displayH1)="handleAction($event)"></app-passenger-actions> <!-- (filter)="handleFilter($event)" -->
+    <app-passenger-detail *ngFor= "let passenger of passengers;" [detail]= "passenger" 
+        [displayH2]= "displayP"
+        (remove)="handleRemove($event)" 
+        (edit)="handleEdit($event)">
+        (select)="handleSelect($event)"
+    </app-passenger-detail>
+</div>  <!-- OJO -->
+<!-- NO VA - ELIMINADO
+<div class ="right">
+    <app-passenger-info [passengerInfo] = "selectedPassenger"></app-passenger-info> 
+</div>
+--> 
+
+
+  

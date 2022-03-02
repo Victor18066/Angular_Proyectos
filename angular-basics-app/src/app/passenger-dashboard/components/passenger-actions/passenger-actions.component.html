@@ -1,0 +1,7 @@
+<div class="actions">
+  <button class="all-passengers" [ngClass]="boton1 ? 'clickedGreen' : '' " (click)="filterPassengers(null, 1)" style="margin-right: 10px;">All</button> <!-- botón verde -->
+  <button class="checked-in-passengers" [ngClass]="boton2 ? 'clickedGreen' : '' " (click)="filterPassengers(true, 2)" style="margin-right: 10px;">Checked in</button> 
+  <button class="not-checked-in-passengers" [ngClass]="boton3 ? 'clickedGreen' : '' " (click)="filterPassengers(false, 3)">Not Checked in</button> 
+</div> 
+
+

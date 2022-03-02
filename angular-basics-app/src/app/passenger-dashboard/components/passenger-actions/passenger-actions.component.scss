@@ -1,0 +1,23 @@
+.status {
+    width: 10px;
+    height: 10px;
+    background: #c0392b;
+    display: block;
+    margin: 8px 10 px 0 0;
+    float: left;
+    border-radius: 50%;
+    &.checked-in {
+        background: #2ecc71;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    margin: 25px 0;
+}
+
+.clickedGreen{ 
+    background-color: #2ecc71;
+}
