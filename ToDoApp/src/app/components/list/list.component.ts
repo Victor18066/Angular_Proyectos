@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../../model/task_interface';
 
 @Component({
@@ -10,9 +10,15 @@ export class ListComponent implements OnInit {
 
   constructor() { }
 
-  public taskList : Task [] =[];
+  @Input()
+  taskList : Task [] = [];
 
   ngOnInit(): void {
+  }
+
+  removeTask(event: any){
+    if(event > -1)
+    this.taskList.splice(event,1);
   }
 
   

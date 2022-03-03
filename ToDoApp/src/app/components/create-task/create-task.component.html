@@ -1,12 +1,13 @@
-<form [formGroup]="toDoForm">
+<form (ngSubmit)="addTask()">
     <div>
-        <span class="title"> Title:</span> <br>
-        <input id="title" type="text" formControlName="title">
+        <label style="margin-left: 10px;" for=""> Title:</label> <br>
+        <input style="margin-left: 10px;" name="title" type="text" id="" [(ngModel)]="title">
     </div>
 
     <div> 
-        <span class="title"> Description:</span> <br>
-        <input id="description" type="text" formControlName="description"> 
-    </div> <br>
-    <button (click)="addTask()">Add Task</button>
+        <label style="margin-left: 10px;" for=""> Description:</label> <br>
+        <input style="margin-left: 10px;" name="description" type="text" id="" [(ngModel)]="description">
+    </div>
+    <br>
+    <input style="margin-left: 10px;" type="submit" value="Add">
 </form>

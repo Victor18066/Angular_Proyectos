@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/model/task_interface';
 
 @Component({
@@ -8,9 +8,14 @@ import { Task } from 'src/app/model/task_interface';
 })
 export class TaskComponent implements OnInit {
 
-  public taskList : Task [] =[];
+  @Input()
+  data!: Task;
 
+  @Input()
   i:number = 0;
+
+  @Output()
+  delete: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
@@ -18,13 +23,8 @@ export class TaskComponent implements OnInit {
   }
 
   removeTask(indice:number){ 
-    if(indice > -1){
-      this.taskList.splice(indice,1);
-    }
+    this.delete.emit(indice);
   }
 
-  deleteHandler(task: Task): void { //
-    task.id;
-  }
 
 }

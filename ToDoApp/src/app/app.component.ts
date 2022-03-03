@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Task } from './model/task_interface';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ToDoApp';
+
+  taskList: Task[] = [];
+
+  handleApp(add:any){
+    this.taskList.push(add);
+  }
+
 }

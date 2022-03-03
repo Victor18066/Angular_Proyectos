@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/model/task_interface';
 
 import { FormBuilder } from '@angular/forms';
@@ -19,19 +19,25 @@ export class CreateTaskComponent implements OnInit {
   title: string = '';
   description: string = '';
 
+  private generateId: number = 0;
+
   @Output()
   add: EventEmitter<Task> = new EventEmitter();
 
-  public task! : Task;
+  task: Task = {
+    id: -1,
+    title: '',
+    description: ''
+  };
 
-  toDoForm = this.fb.group({
-    title: [''],
-    description: [''],
-  });
+  taskList: Task[] = [];
 
   addTask(){
-    //this.taskList.push(new Task());
-    
+    this.generateId++;
+    this.task.id = this.generateId;
+    this.task.title = this.title;
+    this.task.description = this.description;
+    this.add.emit(this.task);
   }
 
 }
