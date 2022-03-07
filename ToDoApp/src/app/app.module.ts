@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { ListComponent } from './components/list/list.component';
-import { TaskComponent } from './components/task/task.component';
-import { CreateTaskComponent } from './components/create-task/create-task.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ListModule } from './list/list.module';
+import { CreateTaskModule } from './create-task/create-task.module';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListComponent,
-    TaskComponent,
-    CreateTaskComponent
+   AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    CommonModule,
+
+    CreateTaskModule,
+    TaskModule,
+    ListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

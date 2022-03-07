@@ -11,7 +11,7 @@ export class AppComponent {
 
   taskList: Task[] = [];
 
-  handleApp(add:any){
+  handleApp(add:Task){
     this.taskList.push(add);
   }
 

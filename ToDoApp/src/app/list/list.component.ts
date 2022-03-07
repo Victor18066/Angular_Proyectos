@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from '../../model/task_interface';
+import { Task } from '../model/task_interface';
 
 @Component({
   selector: 'app-list',
@@ -16,14 +16,15 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeTask(event: any){
+  handleRemoveTask(event: number){ //event: Task // number
     if(event > -1)
-    this.taskList.splice(event,1);
+    this.taskList.splice(event,1); //.id
+    //this.taskList = this.taskList.filter((task: Task) => task.id !== event.id);
   }
 
-  
+  handleChangeEstado(event: number){ 
+    if(event > -1)
+    this.taskList[event].estado = 1;
+  }
 
-  
-
-  
 }
